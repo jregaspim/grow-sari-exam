@@ -1,0 +1,143 @@
+### Register User
+POST http://localhost:3000/register
+Content-Type: application/json
+
+{
+  "name":"<your name>",
+  "username":"<your username>",
+  "email":"<your email>",
+  "password":"<your password>"
+}
+
+
+### Login user
+POST http://localhost:4000/login
+Accept: application/json
+Content-Type: application/json
+
+{
+  "username":"midnight2",
+  "password":"password"
+}
+
+
+### Generate Access token using Refresh Token (refresh token will be get on by login endpoint)
+POST http://localhost:4000/token
+Accept: application/json
+Content-Type: application/json
+
+{
+  "token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6Im1pZG5pZ2h0MiIsImlkIjoiNjI2Y2ZjYzVhYTg5NmJlM2MxNzkzZjA2IiwiaWF0IjoxNjUxNDM2NTQzfQ.6wFVJ0IP1lIRWThsBMNMM8VwxIv9cUT95KrmzNeg6k4"
+}
+
+
+### Logout user (refresh token will be get on by login endpoint)
+DELETE http://localhost:4000/logout
+Accept: application/json
+Content-Type: application/json
+
+{
+  "token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6Im1pZG5pZ2h0MiIsImlkIjoiNjI2Y2ZjYzVhYTg5NmJlM2MxNzkzZjA2IiwiaWF0IjoxNjUxNDM2NTQzfQ.6wFVJ0IP1lIRWThsBMNMM8VwxIv9cUT95KrmzNeg6k4"
+}
+
+
+### Update User Data
+PATCH http://localhost:3000/user/update/626eb6a37395205dd0f61d5d
+Accept: application/json
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoibWlkbmlnaHQyIiwiaWQiOiI2MjZjZmNjNWFhODk2YmUzYzE3OTNmMDYiLCJpYXQiOjE2NTE0MjE2NTl9.SavVPmbX5Kr9wlmX-x5DgvkSN_5v2VVeLKEwf7zRbK4
+
+{
+  "name":"jhumar regaspi55",
+  "username":"midnight5",
+  "email":"jhumarregaspim5@gmail.com"
+}
+
+
+### Get User By ID
+### User Id should be the ower of Bearer token
+GET http://localhost:3000/user/626cfcc5aa896be3c1793f06
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoibWlkbmlnaHQyIiwiaWQiOiI2MjZjZmNjNWFhODk2YmUzYzE3OTNmMDYiLCJpYXQiOjE2NTE0MzU0ODR9.L3wHkmAe10UFPZsTUqG1WG-liIhzI3kpNtwWv64xbVg
+
+
+### Get All Blogs
+GET http://localhost:3000/blog/all
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6Im1pZG5pZ2h0MiIsImlhdCI6MTY1MTQzNjU1NiwiZXhwIjoxNjUxNDM2NTg2fQ.WluYLAYu9dM2zzi-pQomz01QMlLJz4_L_0zfKDAZUlw
+
+
+
+### Get Blog by ID
+GET http://localhost:3000/blog/626ceebbf8c535c7dc7c884b
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoibWlkbmlnaHQyIiwiaWQiOiI2MjZjZmNjNWFhODk2YmUzYzE3OTNmMDYiLCJpYXQiOjE2NTE0MjE2NTl9.SavVPmbX5Kr9wlmX-x5DgvkSN_5v2VVeLKEwf7zRbK4
+
+
+### Add Blog post
+POST http://localhost:3000/blog/add
+Accept: application/json
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoibWlkbmlnaHQyIiwiaWQiOiI2MjZjZmNjNWFhODk2YmUzYzE3OTNmMDYiLCJpYXQiOjE2NTE0MjE2NTl9.SavVPmbX5Kr9wlmX-x5DgvkSN_5v2VVeLKEwf7zRbK4
+
+{
+  "title":"My Blog 2",
+  "snippet":"sample snippet",
+  "body":"sample body"
+}
+
+### Update Blog post
+PATCH http://localhost:3000/blog/update/626ceebbf8c535c7dc7c884b
+Accept: application/json
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoibWlkbmlnaHQyIiwiaWQiOiI2MjZjZmNjNWFhODk2YmUzYzE3OTNmMDYiLCJpYXQiOjE2NTE0MjE2NTl9.SavVPmbX5Kr9wlmX-x5DgvkSN_5v2VVeLKEwf7zRbK4
+
+{
+  "title":"My Blog 2",
+  "snippet":"sample snippet",
+  "body":"sample body"
+}
+
+
+
+### Get All Comment by Blog ID
+GET http://localhost:3000/comment/all/626ceebbf8c535c7dc7c884b
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoibWlkbmlnaHQyIiwiaWQiOiI2MjZjZmNjNWFhODk2YmUzYzE3OTNmMDYiLCJpYXQiOjE2NTE0MjE2NTl9.SavVPmbX5Kr9wlmX-x5DgvkSN_5v2VVeLKEwf7zRbK4
+
+
+### Get All Comment by ID
+GET http://localhost:3000/comment/626cfa5e48e34c17d0007cf5
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoibWlkbmlnaHQyIiwiaWQiOiI2MjZjZmNjNWFhODk2YmUzYzE3OTNmMDYiLCJpYXQiOjE2NTE0MjE2NTl9.SavVPmbX5Kr9wlmX-x5DgvkSN_5v2VVeLKEwf7zRbK4
+
+
+### Add Comment
+POST http://localhost:3000/comment/add
+Accept: application/json
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoibWlkbmlnaHQyIiwiaWQiOiI2MjZjZmNjNWFhODk2YmUzYzE3OTNmMDYiLCJpYXQiOjE2NTE0MjE2NTl9.SavVPmbX5Kr9wlmX-x5DgvkSN_5v2VVeLKEwf7zRbK4
+
+{
+  "comment":"Comment 3",
+  "blogId":"626ceebbf8c535c7dc7c884b"
+}
+
+
+### Update Comment
+PATCH http://localhost:3000/comment/update/626cfa5e48e34c17d0007cf5
+Accept: application/json
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoibWlkbmlnaHQyIiwiaWQiOiI2MjZjZmNjNWFhODk2YmUzYzE3OTNmMDYiLCJpYXQiOjE2NTE0MjE2NTl9.SavVPmbX5Kr9wlmX-x5DgvkSN_5v2VVeLKEwf7zRbK4
+
+{
+  "comment":"sample body11"
+}
+
+
+### Fun Facts  (external api)
+GET http://localhost:3000/fun/fact
+Accept: application/json
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoibWlkbmlnaHQyIiwiaWQiOiI2MjZjZmNjNWFhODk2YmUzYzE3OTNmMDYiLCJpYXQiOjE2NTE0MjE2NTl9.SavVPmbX5Kr9wlmX-x5DgvkSN_5v2VVeLKEwf7zRbK4
+
